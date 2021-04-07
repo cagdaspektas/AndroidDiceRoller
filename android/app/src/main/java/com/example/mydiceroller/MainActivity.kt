@@ -1,5 +1,6 @@
 package com.example.mydiceroller
 
+import android.media.Image
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -9,14 +10,17 @@ import android.widget.Toast
 import kotlin.random.Random
 
 class MainActivity : AppCompatActivity() {
+    lateinit var diceImage:ImageView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         var rollButton:Button = findViewById(R.id.roll_button)
+
         //rollButton.text="Salla bakalım" yaparak dinamik şekilde kullanılabilinir.
         rollButton.setOnClickListener {
           ZarAt()
         }
+        diceImage=findViewById(R.id.dice_image)
     }
 
     private fun ZarAt() {
@@ -30,7 +34,7 @@ class MainActivity : AppCompatActivity() {
             5->R.drawable.dice_5
             else ->R.drawable.dice_6
         }
-    var diceImage:ImageView=findViewById(R.id.dice_image)
+
         diceImage.setImageResource(drawableResource)
 
 
